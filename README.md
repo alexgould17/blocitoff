@@ -1,24 +1,13 @@
-# README
+# Blocitoff Readme
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Blocitoff is a Like this whole project, this readme is a work in progress.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## User Stories
+* User: sign up
+* User: sign in & out
+* User: view profile
+* User: create multiple items
+* Dev: seed db with users/items
+* User: mark items complete
+* User: view age of item
+* DB: Auto-delete items 7 days after creation

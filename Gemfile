@@ -8,8 +8,6 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -27,17 +25,28 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+# Use Devise for user verification & emailing
+gem 'devise'
+# Use Pundit for user roles
+gem 'pundit'
+# Use Faker for test & seeding data
+gem 'faker'
+# Use Bootstrap for a boilerplate style
+gem 'bootstrap-sass'
+# Use Figaro to protect sensitive environment data
+gem 'figaro'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  # Use sqlite3 as the database for Active Record everywhere but Heroku
+  gem 'sqlite3'
+  # Use rspec for testing
+  gem 'rspec-rails'
+  # Use shoulda helper methods in testing
+  gem 'shoulda'
+  # Use FactoryGirl for testing factories
+  gem 'factory_girl_rails'
 end
 
 group :development do
@@ -47,6 +56,11 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :production do
+  # Use postgres on Heroku
+  gem 'pg'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
