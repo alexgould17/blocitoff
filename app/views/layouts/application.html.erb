@@ -27,16 +27,16 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= "Guest User" %> <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= user_signed_in? ? current_user.name : "Guest User" %> <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <% if "user_signed_in?" %>
-                  <li><%= link_to "Edit your profile", "edit_user_registration_path" %></li>
+                <% if user_signed_in? %>
+                  <li><%= link_to "Edit your profile", edit_user_registration_path %></li>
                   <li role="separator" class="divider"></li>
-                  <li><%= link_to "Sign Out", "destroy_user_session_path", method: :delete %></li>
+                  <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
                 <% else %>
-                  <li><%= link_to "Sign In", "new_user_session_path" %></li>
+                  <li><%= link_to "Sign Up!", new_user_registration_path %></li>
                   <li role="separator" class="divider"></li>
-                  <li><%= link_to "Sign Up!", "new_user_registration_path" %></li>
+                  <li><%= link_to "Sign in", new_user_session_path %></li>
                 <% end %>
               </ul>
             </li>
@@ -51,7 +51,7 @@
       <% if alert %>
         <p class="alert" id="alertDiv"><%= alert %></p>
       <% end %>
+			<%= yield %>
 		</div>
-    <%= yield %>
   </body>
 </html>

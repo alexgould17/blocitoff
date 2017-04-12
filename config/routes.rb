@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # Route root path thru the home controller to the index page
   root 'home#index'
 
