@@ -1,2 +1,25 @@
 <h2><%= @user.name %></h2>
 <p><small>Joined on: <%= @user.created_at.strftime("%B %-d, %Y") %></small></p>
+<br>
+<h3>Current To-Do items:</h3>
+<ul class="item-list">
+	<% @items.each do |item| %>
+		<li>
+			<%= render item %>
+		</li>
+	<% end %>
+</ul>
+<br>
+<% if current_user == @user %>
+	<h3>Add New Items:</h3>
+	<ul class="item-list">
+		<%= form_for @item, url: [current_user, @item] do |f| %>
+			<% 3.times do |n| %>
+				<li>
+					<%= render partial: "items/form", locals: { f: f, n: n } %>
+				</li>
+			<% end %>
+			<%= f.submit "Create New To-Do Item(s)", class: "btn btn-success" %>
+		<% end %>
+	</ul>
+<% end %>

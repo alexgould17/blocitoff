@@ -30,6 +30,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= user_signed_in? ? current_user.name : "Guest User" %> <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <% if user_signed_in? %>
+									<li><%= link_to "View your profile", current_user %></li>
                   <li><%= link_to "Edit your profile", edit_user_registration_path %></li>
                   <li role="separator" class="divider"></li>
                   <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
@@ -46,10 +47,10 @@
     </header>
     <div class="container">
       <% if notice  %>
-        <p class="notice" id="noticeDiv"><%= notice %></p>
+        <p class="notice" id="noticeDiv"><%= notice.html_safe %></p>
       <% end %>
       <% if alert %>
-        <p class="alert" id="alertDiv"><%= alert %></p>
+        <p class="alert" id="alertDiv"><%= alert.html_safe %></p>
       <% end %>
 			<%= yield %>
 		</div>

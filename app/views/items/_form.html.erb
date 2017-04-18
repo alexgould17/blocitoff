@@ -1,0 +1,4 @@
+<div class="item-form-row">
+	<%= f.label :name, value: "New Item Name ##{n+1}" %>
+	<%= f.text_field :name, class: "form-control", length: 25, placeholder: "Name ##{n+1}", name: "item[name-#{n+1}]" %>
+</div>
