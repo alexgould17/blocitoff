@@ -1,19 +1,22 @@
 // Place all the styles related to the Items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$item_border: 1px solid #AAA;
 .item-row {
-	border-top: 1px solid #AAA;
+	border-bottom: $item_border;
 	box-sizing: border-box;
-	display: inline;
 	padding: 0px 5px 0px 5px;
 }
-.item-row:last-child {
-	border-bottom: 1px solid #AAA;
-}
-.item-info {
-	display: inline;
-	padding: 5px 0px 5px 0px;
-}
 .item-list {
-	list-style: none;
+	&:last-child {
+		border-bottom: 0px;
+	}
+}
+.item-name {
+	display: inline;
+	left: 5px;
+}
+.item-time {
+	display: inline;
+	left: 20px;
 }
