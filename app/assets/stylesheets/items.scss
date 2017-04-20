@@ -21,5 +21,8 @@ $item_border: 1px solid #AAA;
 	left: 20px;
 }
 .item-delete {
-	left: 50px;
+	left: 5px;
+	&:hover {
+		text-decoration: none;
+	}
 }
