@@ -1,0 +1,4 @@
+<% if @item.destroyed? %>
+	$('#item-row-<%=@item.id%>').hide();
+	$('#noticeDiv').html('<%=flash[:notice]%>')
+<% end %>

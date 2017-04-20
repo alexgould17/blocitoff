@@ -15,6 +15,6 @@ Rails.application.routes.draw do
 	
 	# Item routes, nested under users
 	resources :users, only: [] do
-		resources :items, only: [:create]
+		resources :items, only: [:create, :destroy]
 	end
 end

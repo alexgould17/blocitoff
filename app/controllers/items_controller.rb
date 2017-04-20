@@ -15,6 +15,20 @@ class ItemsController < ApplicationController
 		redirect_to current_user
   end
 	
+	def destroy
+		@item = Item.find(params[:id])
+		if @item.destroy
+			flash[:notice] = "#{@item.name} completed!"
+		else
+			flash[:alert] = "Error marking #{@item} completed. Please try again!"
+		end
+		
+		respond_to do |format|
+			format.html { redirect_to @item.user }
+			format.js
+		end
+	end
+	
 	private
 	
 	def save_item(item)
