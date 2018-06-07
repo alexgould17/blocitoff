@@ -1,12 +1,12 @@
 # Our standard test password & array of users (we'll need this to bypass devise's confirm step in a bit).
 test_users = []
-pw = "wsxedc"
+test_pw = "wsxedc"
 admin_email = "admin@test.test"
 
 # Create my usual test admin account
 me = User.find_or_create_by(email: admin_email) do |me|
   me.name = "Test Admin"
-  me.password = pw
+  me.password = test_pw
 end
 test_users << me
 
@@ -17,7 +17,7 @@ unless Rails.env.production?
 		test_users << User.create!(
 			name: Faker::Name.unique.name,
 			email: Faker::Internet.unique.safe_email,
-			password: pw
+			password: test_pw
 		)
 	end
 end
